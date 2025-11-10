@@ -4,7 +4,6 @@ from homeassistant.components.binary_sensor import (
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from custom_components.ensy_unofficial.client import EnsyClient, EnsyState
@@ -53,7 +52,7 @@ async def async_setup_entry(
 ) -> None:
     ensy_client = hass.data[DOMAIN][entry.entry_id]
     device_name = entry.data.get("name", "Ensy Ventilation Aggregate")
-    
+
     sensors = [
         EnsyHeaterSensor(ensy_client, "Heater element", "is_heating", device_name),
         EnsyOnlineSensor(ensy_client, "Connectivity", "is_online", device_name),

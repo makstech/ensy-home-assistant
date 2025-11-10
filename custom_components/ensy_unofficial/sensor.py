@@ -9,7 +9,6 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import UnitOfTemperature
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from custom_components.ensy_unofficial.client import EnsyClient, EnsyState
@@ -88,7 +87,7 @@ async def async_setup_entry(
 ) -> None:
     ensy_client = hass.data[DOMAIN][entry.entry_id]
     device_name = entry.data.get("name", "Ensy Ventilation Aggregate")
-    
+
     sensor_definitions = {
         "Target temperature": "temperature_target",
         "Extract air": "temperature_extract",
