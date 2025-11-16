@@ -17,6 +17,7 @@ from custom_components.ensy_unofficial.const import DOMAIN, get_device_info
 
 class EnsyTemperatureSensor(SensorEntity):
     _attr_should_poll = False
+    _attr_has_entity_name = True
 
     def __init__(
         self, ensy_client: EnsyClient, name: str, state_key: str, device_name: str
@@ -51,6 +52,7 @@ class EnsyTemperatureSensor(SensorEntity):
 class EnsyEnumSensor(SensorEntity):
     _attr_should_poll = False
     _attr_device_class = SensorDeviceClass.ENUM
+    _attr_has_entity_name = True
 
     def __init__(
         self,

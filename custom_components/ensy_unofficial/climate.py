@@ -51,11 +51,12 @@ class EnsyClimate(ClimateEntity):
     _attr_target_temperature_step = 1
 
     _attr_should_poll = False
+    _attr_has_entity_name = True
 
     def __init__(self, ensy_client: EnsyClient, name: str):
         self._ensy_client = ensy_client
         self._attr_unique_id = f"climate_{DOMAIN}_{ensy_client.mac_address}"
-        self._attr_name = name
+        self._attr_name = None  # Use device name
         self._device_name = name
 
     async def async_added_to_hass(self) -> None:

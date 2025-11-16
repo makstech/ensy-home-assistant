@@ -2,8 +2,13 @@ import logging
 
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.components.dhcp import DhcpServiceInfo
 from homeassistant.helpers.device_registry import format_mac
+
+try:
+    from homeassistant.helpers.service_info.dhcp import DhcpServiceInfo
+except ImportError:
+    # Fallback for older Home Assistant versions
+    from homeassistant.components.dhcp import DhcpServiceInfo  # type: ignore[attr-defined]
 
 from custom_components.ensy_unofficial.client import EnsyClient
 from custom_components.ensy_unofficial.const import (
