@@ -4,13 +4,11 @@
   "version": "0.0.1",
   "codeowners": ["@alexbrasetvik"],
   "config_flow": true,
-  "dependencies": [],
-  "documentation": "https://github.com/alexbrasetvik/ensy-home-assistant/",
-  "homekit": {},
+  "dependencies": ["mqtt"],
+  "documentation": "https://github.com/makstech/ensy-home-assistant/",
+  "issue_tracker": "https://github.com/makstech/ensy-home-assistant/issues",
   "iot_class": "cloud_polling",
   "requirements": [],
-  "ssdp": [],
-  "zeroconf": [],
   "dhcp": [
     {
       "registered_devices": true
