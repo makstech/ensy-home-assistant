@@ -17,15 +17,15 @@ class TestStateChanging:
     @pytest.mark.parametrize(
         "message_key, message_value, state_key, state_value",
         [
-            ("temperature", "23", "sensor.target_temperature", "23"),
-            ("status", "online", "binary_sensor.connectivity", "on"),
-            ("status", "offline", "binary_sensor.connectivity", "off"),
-            ("texauh", "17", "sensor.exhaust_air", "17"),
-            ("textr", "20", "sensor.extract_air", "20"),
-            ("tsupl", "21", "sensor.supply_air", "21"),
-            ("tout", "18", "sensor.outside_air", "18"),
-            ("he", "1", "binary_sensor.heater_element", "on"),
-            ("overheating", "17", "sensor.heater_temperature", "17"),
+            ("temperature", "23", "sensor.test_target_temperature", "23"),
+            ("status", "online", "binary_sensor.test_connectivity", "on"),
+            ("status", "offline", "binary_sensor.test_connectivity", "off"),
+            ("texauh", "17", "sensor.test_exhaust_air", "17"),
+            ("textr", "20", "sensor.test_extract_air", "20"),
+            ("tsupl", "21", "sensor.test_supply_air", "21"),
+            ("tout", "18", "sensor.test_outside_air", "18"),
+            ("he", "1", "binary_sensor.test_heater_element", "on"),
+            ("overheating", "17", "sensor.test_heater_temperature", "17"),
         ],
     )
     async def test_set_state(
@@ -58,7 +58,7 @@ class TestStateChanging:
     ) -> None:
         await ensy_client.apply_state_messages({"party": "1"})
         await hass.async_block_till_done()
-        state = hass.states.get("sensor.preset_mode")
+        state = hass.states.get("sensor.test_preset_mode")
         assert state is not None and state.state == "boost"
 
         # While in party mode, setting a custom fan mode should set the preset mode back to home

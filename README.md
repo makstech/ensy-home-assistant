@@ -7,6 +7,26 @@ If you have issues with the component, reach out in this GitHub repository, and 
 When connected to WiFi, your Ensy aggregate will publish status to their service, and listen to control messages like adjusting fan speed and temperature. This component interacts with the same endpoint that their official iOS and Android apps communicate with.
 
 
+# Installation
+
+## HACS (Recommended)
+
+1. Open HACS in your Home Assistant instance
+2. Click on "Integrations"
+3. Click the three dots in the top right corner and select "Custom repositories"
+4. Add this repository URL: `https://github.com/makstech/ensy-home-assistant`
+5. Select "Integration" as the category
+6. Click "Add"
+7. Search for "Ensy Ventilation Aggregate" in HACS
+8. Click "Download"
+9. Restart Home Assistant
+
+## Manual Installation
+
+1. Copy the `custom_components/ensy_unofficial` directory to your Home Assistant's `custom_components` directory
+2. Restart Home Assistant
+
+
 # Prerequisites
 
 Your Ensy AHU device must be connected and show the highlighted icon in the below image. The official app _must_ work before initial setup.

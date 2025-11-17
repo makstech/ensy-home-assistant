@@ -1,16 +1,9 @@
 {
   "domain": "ensy_unofficial",
   "name": "Ensy Ventilation Aggregate (unofficial)",
-  "version": "0.0.1",
   "codeowners": ["@alexbrasetvik"],
   "config_flow": true,
-  "dependencies": [],
-  "documentation": "https://github.com/alexbrasetvik/ensy-home-assistant/",
-  "homekit": {},
-  "iot_class": "cloud_polling",
-  "requirements": [],
-  "ssdp": [],
-  "zeroconf": [],
+  "dependencies": ["mqtt"],
   "dhcp": [
     {
       "registered_devices": true
@@ -21,5 +14,10 @@
     {
       "macaddress": "C4DEE2*"
     }
-  ]
+  ],
+  "documentation": "https://github.com/makstech/ensy-home-assistant/",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/makstech/ensy-home-assistant/issues",
+  "requirements": [],
+  "version": "1.0.0"
 }

@@ -3,7 +3,12 @@ import logging
 import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.helpers.device_registry import format_mac
-from homeassistant.helpers.service_info import dhcp
+
+try:
+    from homeassistant.helpers.service_info.dhcp import DhcpServiceInfo
+except ImportError:
+    # Fallback for older Home Assistant versions
+    from homeassistant.components.dhcp import DhcpServiceInfo  # type: ignore[attr-defined]
 
 from custom_components.ensy_unofficial.client import EnsyClient
 from custom_components.ensy_unofficial.const import (
@@ -23,7 +28,7 @@ class EnsyConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self.data: dict[str, str] = {}
 
     async def async_step_dhcp(
-        self, discovery_info: dhcp.DhcpServiceInfo
+        self, discovery_info: DhcpServiceInfo
     ) -> config_entries.ConfigFlowResult:
         """Handle DHCP discovery."""
         mac = format_mac(discovery_info.macaddress)
